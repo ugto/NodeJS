@@ -5,24 +5,20 @@ const path = require('path');
 //Settings
 app.set('port',5000);
 app.set('views',path.join(__dirname,'views'));
+// configurar para que las views sean tipo html
+app.engine('html',require('ejs').renderFile);
 app.set('view engine','ejs');
 
 //Funciones
 
 
 //Rutas
-app.get('/',(req, res)=>{
-    //res.send('Estas en la ruta Raíz');
-    //res.sendFile('C:\Users\tramos\Desktop\NodeJS\src\views\index.html');
-    //console.log(__dirname+'/views/index.html')
-    //console.log(path.join(__dirname,'views/index.html'));
-    //res.sendFile(path.join(__dirname, 'views/index.html'));
-    res.render('index', {titulo: 'Aqui va el Titulo'});
-});
+        //NOTA: La ruta se cambio a la seccion de routes/index.js, esa seccion será para agrgar todas las rutas.
+ app.use(require('./routes/index'));     
+
 
 //Archivos Estaticos
-
-
+app.use(express.static(path.join(__dirname,'public')));
 //Servidor
 app.listen(app.get('port'),()=>{
     console.log('Servidor en Puerto',app.get('port'))
