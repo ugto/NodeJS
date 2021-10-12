@@ -17,8 +17,9 @@ app.set('view engine','ejs');
  app.use(require('./routes/index'));     
 
 
-//Archivos Estaticos
+//Archivos Estáticos
 app.use(express.static(path.join(__dirname,'public')));
+
 //Servidor
 app.listen(app.get('port'),()=>{
     console.log('Servidor en Puerto',app.get('port'))

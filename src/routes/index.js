@@ -11,8 +11,17 @@ router.get('/',(req, res)=>{
 });
 
 router.get('/contact',(req, res)=>{
-    res.render('contact.html', {titulo: 'Página de Contacto'});
+    res.render('contact.html', {titulo: 'Dame La Pata'});
 });
+
+router.get('/users',(req, res)=>{
+    res.render('users.html', {titulo: 'Usuarios'});
+});
+
+router.get('/products',(req, res)=>{
+    res.render('products.html', {titulo: 'Productos'});
+});
+
 
 
 module.exports = router;
